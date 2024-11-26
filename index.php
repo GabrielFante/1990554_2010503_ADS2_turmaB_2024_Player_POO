@@ -1,11 +1,11 @@
 <?php
 
-require_once('class/Player.php');
-require_once('class/Inventario.php');
-require_once('class/Item.php');
-require_once('class/Defesa.php');
-require_once('class/Magia.php');
-require_once('class/Ataque.php');
+require_once('Player.php');
+require_once('Inventario.php');
+require_once('Item.php');
+require_once('Defesa.php');
+require_once('Magia.php');
+require_once('Ataque.php');
 
 $fireBall = new Magia('Bola de Fogo', 9, 'teste1');
 $waterLife = new Magia('Água da vida', 2, 'Magia');
