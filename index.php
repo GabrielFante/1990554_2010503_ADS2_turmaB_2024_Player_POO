@@ -11,7 +11,7 @@ $fireBall = new Magia('Bola de Fogo');
 $waterLife = new Magia('Água da vida');
 
 $espada = new Ataque('Espada');
-$arco = new Ataque('Arco', 7);
+$arco = new Ataque('Arco');
 
 $escudo = new Defesa('Escudo de Ferro');
 $capacete = new Defesa('Capacete de Dima');
