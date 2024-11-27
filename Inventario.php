@@ -36,7 +36,7 @@ class Inventario
 
     public function adicionar(Item $item): bool{
         if ($item->getTamanho() <= $this->getCapacidadeMaxima()){
-            echo "<li>{$item->getName()} coletado e adicionado no inventário<br>";
+            echo "<li>{$item->getName()}, | TAMANHO: {$item->getTamanho()}, | CLASSE: {$item->getClasse()},  coletado e adicionado no inventário<br>";
             $this->itens[] = $item;
             $this->capacidadeMaxima -= $item->tamanho;
             return TRUE;
