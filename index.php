@@ -7,13 +7,13 @@ require_once('Defesa.php');
 require_once('Magia.php');
 require_once('Ataque.php');
 
-$fireBall = new Magia('Bola de Fogo', 9, 'teste1');
+$fireBall = new Magia('Bola de Fogo', 2, 'Magia');
 $waterLife = new Magia('Água da vida', 2, 'Magia');
 
-$espada = new Ataque('Espada', 9, 'teste2');
+$espada = new Ataque('Espada', 7, 'Ataque');
 $arco = new Ataque('Arco', 7, 'Ataque');
 
-$escudo = new Defesa('Escudo de Ferro', 9, 'teste3');
+$escudo = new Defesa('Escudo de Ferro', 4, 'Defesa');
 $capacete = new Defesa('Capacete de Dima', 4, 'Defesa');
 
 $player1 = new Player('Gabriel');
