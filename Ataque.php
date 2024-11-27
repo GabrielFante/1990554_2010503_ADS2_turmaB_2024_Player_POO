@@ -6,7 +6,5 @@ class Ataque extends Item
 {
     public function __construct(string $name, int $tamanho, string $classe){
         parent:: __construct($name, $tamanho, $classe);
-        $this->setTamanho(7);
-        $this->setClasse('Ataque');
     }
 }
