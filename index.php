@@ -1,61 +1,57 @@
 <?php
 
-include_once('Inventario.php');
+require_once('Player.php');
+require_once('Inventario.php');
+require_once('Item.php');
+require_once('Defesa.php');
+require_once('Magia.php');
+require_once('Ataque.php');
 
-class Player
-{
-    public string $nickname;
-    public int $nivel = 1;
-    public Inventario $inventario;
+$fireBall = new Magia('Bola de Fogo');
+$waterLife = new Magia('Água da vida');
 
-    public function __construct(string $nickname){
-        $this->setNickName($nickname);
-        $this->inventario = new Inventario(20);
-    }
+$espada = new Ataque('Espada');
+$arco = new Ataque('Arco', 7);
 
-    public function getNickName(): string{
-        return $this->nickname;
-    }
+$escudo = new Defesa('Escudo de Ferro');
+$capacete = new Defesa('Capacete de Dima');
 
-    public function setNickName(string $nickname): void{
-        if ($nickname == ''){
-            $this->nickname = 'NickName indefinido!';
-        } else{
-            $this->nickname = $nickname;
-        }
-    }
+$player1 = new Player('Gabriel');
 
-    public function getNivel(): int{
-        return $this->nivel;
-    }
+$player1->subirNivel();
+$player1->coletarItem($espada);
+$player1->coletarItem($arco);
+$player1->coletarItem($capacete);
+$player1->coletarItem($escudo);
+$player1->coletarItem($fireBall);
+$player1->soltarItem($fireBall);
+$player1->soltarItem($espada);
+$player1->coletarItem($waterLife);
+$player1->soltarItem($escudo);
+$player1->soltarItem($waterLife);
+$player1->soltarItem($fireBall);
+$player1->inventario->capacidadeLivre();
 
-    public function setNivel(int $nivel): void{
-        if ($nivel > 1){
-            $this->nivel = 1;
-        } else{
-            $this->nivel = $nivel;
-        }
-    }
+echo '<hr></hr>';
 
-    public function getInventario(): Inventario{
-        return $this->inventario;
-    }
+$player2 = new Player('Leonardo');
+$player2->coletarItem($espada);
+$player2->coletarItem($escudo);
+$player2->coletarItem($waterLife);
+$player2->coletarItem($fireBall);
+$player2->coletarItem($capacete);
+$player2->coletarItem($arco);
+$player2->subirNivel();
+$player2->coletarItem($espada);
+$player2->inventario->capacidadeLivre();
 
-    public function setInventario(Inventario $inventario): void{
-        $this->inventario = $inventario;
-    }
+echo '<hr></hr>';
 
-    public function coletarItem(Item $item): bool{
-        return $this->inventario->adicionar($item);
-    }
+echo "<li><strong>TAMANHO:</strong> {$capacete->getTamanho()} | {$capacete->getName()} | {$capacete->getClasse()}<br>";
+echo "<li><strong>TAMANHO:</strong> {$escudo->getTamanho()} | {$escudo->getName()} | {$escudo->getClasse()}<br>";
+echo "<li><strong>TAMANHO:</strong> {$espada->getTamanho()} | {$espada->getName()} | {$espada->getClasse()}<br>";
+echo "<li><strong>TAMANHO:</strong> {$arco->getTamanho()} | {$arco->getName()} | {$arco->getClasse()}<br>";
+echo "<li><strong>TAMANHO:</strong> {$fireBall->getTamanho()} | {$fireBall->getName()} | {$fireBall->getClasse()}<br>";
+echo "<li><strong>TAMANHO:</strong> {$waterLife->getTamanho()} | {$waterLife->getName()} | {$waterLife->getClasse()}<br>";
 
-    public function soltarItem(Item $item): bool{
-        return $this->inventario->remover($item);
-    }
-
-    public function subirNivel(){
-        $this->nivel ++;
-        $this->inventario->capacidadeMaxima += $this->nivel * 3;
-        echo "O Player {$this->getNickName()}, subiu de nível. ESPAÇO DO IVENTARIO ATUAL AUMENTADO PARA: {$this->inventario->capacidadeMaxima}<br>";
-    }
-}
+echo '<hr></hr>';
